@@ -1,166 +1,216 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTCG Master Academy</title>
+    <title>PTCG Master Academy | 專業新手指南</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .page { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .page { display: none; animation: fadeIn 0.4s ease-out; }
         .page.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .step-active { color: #3b82f6; border-bottom: 2px solid #3b82f6; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .step-active { color: #2563eb; border-bottom: 3px solid #2563eb; padding-bottom: 8px;}
+        /* 自定義卡牌懸停效果 */
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -2px rgba(37, 99, 235, 0.05); }
+        /* 屬性顏色自定義 */
+        .type-fire { color: #ff4422; }
+        .type-water { color: #3399ff; }
+        .type-grass { color: #77cc55; }
+        .type-electric { color: #ffcc33; }
+        .type-psychic { color: #ff6699; }
     </style>
 </head>
-<body class="bg-gray-50 font-sans leading-relaxed">
+<body class="bg-slate-50 font-sans leading-relaxed text-slate-900">
 
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center text-sm font-bold text-gray-400">
-            <span id="step1-label" class="step-active">1. 獲勝條件</span>
-            <span id="step2-label">2. 卡牌構造</span>
-            <span id="step3-label">3. 實戰演練</span>
+    <nav class="bg-white shadow-md sticky top-0 z-50 border-b border-slate-100">
+        <div class="max-w-5xl mx-auto px-6 py-5 flex justify-between items-center text-sm font-bold text-slate-400 overflow-x-auto whitespace-nowrap space-x-4">
+            <span id="step1-label" class="step-active flex items-center gap-2 cursor-pointer" onclick="showPage(1)"><i class="fas fa-flag-checkered text-lg"></i> 1. 獲勝條件</span>
+            <span id="step2-label" class="flex items-center gap-2 cursor-pointer" onclick="showPage(2)"><i class="fas fa-id-card text-lg"></i> 2. 卡牌構造</span>
+            <span id="step3-label" class="flex items-center gap-2 cursor-pointer" onclick="showPage(3)"><i class="fas fa-play-circle text-lg"></i> 3. 實戰流程</span>
+            <span id="step4-label" class="flex items-center gap-2 cursor-pointer" onclick="showPage(4)"><i class="fas fa-box-open text-lg"></i> 4. 套牌建議</span>
         </div>
     </nav>
 
-    <div class="max-w-4xl mx-auto p-6 mt-10">
+    <div class="max-w-4xl mx-auto p-6 mt-10 mb-20">
         
         <div id="page1" class="page active">
-            <h1 class="text-4xl font-extrabold text-gray-900 mb-6">第一章：邁向勝利的三條路</h1>
-            <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 mb-10">
-                <p class="text-gray-600 mb-6 text-lg">在 PTCG 的世界裡，你要先知道如何贏，才能決定如何戰鬥。</p>
-                <div class="space-y-4">
-                    <div class="flex items-center p-4 bg-yellow-50 rounded-lg">
-                        <i class="fas fa-check-circle text-yellow-500 mr-4 text-xl"></i>
-                        <span>**取走 6 張獎賞卡**：擊敗對方寶可夢時根據卡種領取。</span>
+            <div class="flex items-center gap-4 mb-8">
+                <i class="fas fa-trophy text-5xl text-yellow-500"></i>
+                <h1 class="text-4xl font-extrabold text-slate-950">邁向勝利的三條路</h1>
+            </div>
+            <div class="bg-white p-9 rounded-3xl shadow-lg border border-slate-100 mb-10 card-hover">
+                <p class="text-slate-600 mb-8 text-lg flex items-center gap-3"><i class="fas fa-info-circle text-blue-500"></i> 在 PTCG 的世界裡，你要先知道如何贏，才能決定如何戰鬥。</p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="flex flex-col items-center p-6 bg-yellow-50 rounded-2xl text-center border border-yellow-100">
+                        <i class="fas fa-clone text-4xl text-yellow-600 mb-4 hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-slate-900">取走 6 張獎賞卡</span>
+                        <span class="text-xs text-slate-500 mt-2">擊敗對方寶可夢時領取</span>
                     </div>
-                    <div class="flex items-center p-4 bg-blue-50 rounded-lg">
-                        <i class="fas fa-check-circle text-blue-500 mr-4 text-xl"></i>
-                        <span>**清空對方場地**：當對手戰鬥場與備戰區皆無寶可夢。</span>
+                    <div class="flex flex-col items-center p-6 bg-red-50 rounded-2xl text-center border border-red-100">
+                        <i class="fas fa-skull text-4xl text-red-600 mb-4"></i>
+                        <span class="font-bold text-slate-900">清空對方場地</span>
+                        <span class="text-xs text-slate-500 mt-2">對手無可戰鬥的寶可夢</span>
                     </div>
-                    <div class="flex items-center p-4 bg-purple-50 rounded-lg">
-                        <i class="fas fa-check-circle text-purple-500 mr-4 text-xl"></i>
-                        <span>**牌庫空竭 (Deck Out)**：對手無法在回合開始時抽牌。</span>
+                    <div class="flex flex-col items-center p-6 bg-purple-50 rounded-2xl text-center border border-purple-100">
+                        <i class="fas fa-hourglass-end text-4xl text-purple-600 mb-4"></i>
+                        <span class="font-bold text-slate-900">牌庫空竭 (Deck Out)</span>
+                        <span class="text-xs text-slate-500 mt-2">對手回合開始無法抽牌</span>
                     </div>
                 </div>
             </div>
-            <button onclick="showPage(2)" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition shadow-lg flex justify-center items-center">
-                下一頁：認識你的卡牌 <i class="fas fa-arrow-right ml-2"></i>
+            <button onclick="showPage(2)" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-2xl transition shadow-lg flex justify-center items-center gap-3 text-lg">
+                認識你的卡牌 <i class="fas fa-arrow-right"></i>
             </button>
         </div>
 
         <div id="page2" class="page">
-            <h1 class="text-4xl font-extrabold text-gray-900 mb-6">第二章：解析卡牌數據</h1>
+            <div class="flex items-center gap-4 mb-8">
+                <i class="fas fa-search-plus text-5xl text-blue-600"></i>
+                <h1 class="text-4xl font-extrabold text-slate-950">解析卡牌數據</h1>
+            </div>
             <div class="grid md:grid-cols-2 gap-6 mb-10">
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500">
-                    <h3 class="font-bold text-xl mb-3">寶可夢卡</h3>
-                    <p class="text-gray-600 text-sm">注意 **HP (血量)**、**弱點** 以及 **撤退代價**。傷害計算公式為：</p>
-                    <p class="bg-gray-100 p-3 mt-2 rounded font-mono text-center">
-                        $Damage = Base \times Weakness$
-                    </p>
+                <div class="bg-white p-7 rounded-2xl shadow-md border-t-4 border-blue-500 card-hover">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-dragon text-2xl text-blue-600 overflow-hidden"></i>
+                        <h3 class="font-bold text-2xl text-slate-950">寶可夢卡</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">你的戰鬥主力。注意以下關鍵數據：</p>
+                    <ul class="space-y-3 text-sm text-slate-700">
+                        <li class="flex items-center gap-2"><i class="fas fa-heart-beat type-fire text-lg w-6 text-center"></i> **HP**：血量，歸零即昏厥。</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-bolt type-electric text-lg w-6 text-center"></i> **招式**：需要對應能量發動。</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-fist-raised text-slate-500 text-lg w-6 text-center"></i> **弱點**：通常受到 2 倍傷害！</li>
+                    </ul>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-green-500">
-                    <h3 class="font-bold text-xl mb-3">訓練家卡</h3>
-                    <ul class="text-sm text-gray-600 list-disc ml-5 space-y-1">
-                        <li>**物品**：一回合可使用無限張</li>
-                        <li>**支援者**：最強大的輔助，一回合限一張</li>
-                        <li>**競技場**：改變場地效果，直到被覆蓋</li>
+                <div class="bg-white p-7 rounded-2xl shadow-md border-t-4 border-green-500 card-hover">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-tools text-2xl text-green-600"></i>
+                        <h3 class="font-bold text-2xl text-slate-950">訓練家卡</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">強大的戰術支援。分為三大類：</p>
+                    <ul class="space-y-3 text-sm text-slate-700">
+                        <li class="flex items-center gap-2"><i class="fas fa-cube text-green-500 text-lg w-6 text-center"></i> **物品**：一回合可使用無限張。</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-friends text-green-700 text-lg w-6 text-center"></i> **支援者**：濾抽關鍵，一回合限一張。</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-map-marked-alt text-slate-500 text-lg w-6 text-center"></i> **競技場**：改變場地效果。</li>
                     </ul>
                 </div>
             </div>
             <div class="flex gap-4">
-                <button onclick="showPage(1)" class="w-1/3 border-2 border-gray-200 text-gray-500 font-bold py-4 rounded-xl hover:bg-gray-100 transition">返回</button>
-                <button onclick="showPage(3)" class="w-2/3 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition shadow-lg">下一頁：對戰流程圖</button>
+                <button onclick="showPage(1)" class="w-1/3 border-2 border-slate-200 text-slate-500 font-bold py-4 rounded-xl hover:bg-slate-100 transition flex items-center justify-center gap-2"><i class="fas fa-arrow-left"></i> 返回</button>
+                <button onclick="showPage(3)" class="w-2/3 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition shadow-lg flex items-center justify-center gap-3">下一頁：對戰流程圖 <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
 
         <div id="page3" class="page">
-            <h1 class="text-4xl font-extrabold text-gray-900 mb-6">第三章：實戰流程控制</h1>
-            <div class="bg-slate-900 text-white p-8 rounded-2xl mb-10 relative overflow-hidden">
-                <div class="border-l-2 border-blue-500 ml-4 pl-8 space-y-10">
-                    <div class="relative"><span class="absolute -left-[41px] bg-blue-500 w-4 h-4 rounded-full"></span><h4 class="font-bold">1. 準備階段</h4><p class="text-slate-400 text-sm">洗牌、放置 6 張獎賞卡、確認首發寶可夢。</p></div>
-                    <div class="relative"><span class="absolute -left-[41px] bg-blue-500 w-4 h-4 rounded-full"></span><h4 class="font-bold">2. 玩家回合</h4><p class="text-slate-400 text-sm">抽牌後，可進行附能、進化、使用道具，最後宣布攻擊。</p></div>
-                    <div class="relative"><span class="absolute -left-[41px] bg-blue-500 w-4 h-4 rounded-full"></span><h4 class="font-bold">3. 回合間隙</h4><p class="text-slate-400 text-sm">檢查毒、灼傷等狀態傷害。</p></div>
+            <div class="flex items-center gap-4 mb-8">
+                <i class="fas fa-history text-5xl text-slate-800"></i>
+                <h1 class="text-4xl font-extrabold text-slate-950">實戰流程控制</h1>
+            </div>
+            <div class="bg-slate-950 text-white p-10 rounded-3xl mb-10 shadow-2xl relative overflow-hidden card-hover">
+                <div class="border-l-4 border-blue-500 ml-5 pl-10 space-y-12">
+                    <div class="relative">
+                        <span class="absolute -left-[54px] bg-slate-950 border-4 border-blue-500 w-10 h-10 rounded-full flex items-center justify-center"><i class="fas fa-shuffle text-blue-500"></i></span>
+                        <h4 class="font-bold text-xl text-white">1. 準備階段</h4>
+                        <p class="text-slate-300 text-sm mt-1">洗牌、放置 6 張獎賞卡、確認首發寶可夢。</p>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute -left-[54px] bg-slate-950 border-4 border-blue-500 w-10 h-10 rounded-full flex items-center justify-center"><i class="fas fa-hand-pointer text-blue-500"></i></span>
+                        <h4 class="font-bold text-xl text-white">2. 玩家回合</h4>
+                        <p class="text-slate-300 text-sm mt-1 flex items-center gap-2"><i class="fas fa-plus-circle text-xs text-slate-400"></i> 抽牌 -> 附能 -> 進化 -> 用道具 -> 最後**宣佈攻擊**。</p>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute -left-[54px] bg-slate-950 border-4 border-blue-500 w-10 h-10 rounded-full flex items-center justify-center"><i class="fas fa-exchange-alt text-blue-500"></i></span>
+                        <h4 class="font-bold text-xl text-white">3. 回合間隙</h4>
+                        <p class="text-slate-300 text-sm mt-1">檢查毒、灼傷等異常狀態傷害。</p>
+                    </div>
                 </div>
+                <i class="fas fa-bolt absolute -bottom-10 -right-10 text-9xl text-white/5 rotate-12"></i>
             </div>
             <div class="flex gap-4">
-                <button onclick="showPage(2)" class="w-1/3 border-2 border-gray-200 text-gray-500 font-bold py-4 rounded-xl">返回</button>
-                <button onclick="location.reload()" class="w-2/3 bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl shadow-lg">重新學習一次</button>
+                <button onclick="showPage(2)" class="w-1/3 border-2 border-slate-200 text-slate-500 font-bold py-4 rounded-xl hover:bg-slate-100 transition flex items-center justify-center gap-2"><i class="fas fa-arrow-left"></i> 返回</button>
+                <button onclick="showPage(4)" class="w-2/3 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg flex items-center justify-center gap-3">下一頁：新手套牌建議 <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div id="page4" class="page">
+            <div class="flex items-center gap-4 mb-8">
+                <i class="fas fa-shopping-cart text-5xl text-cyan-600"></i>
+                <h1 class="text-4xl font-extrabold text-slate-950">新手首選套牌建議</h1>
+            </div>
+            <p class="text-slate-600 mb-8 text-lg flex items-center gap-3"><i class="fas fa-lightbulb text-yellow-500"></i> 建議根據你的戰鬥風格選擇 2026 入門選擇：</p>
+
+            <div class="overflow-hidden bg-white rounded-3xl shadow-xl border border-slate-100 mb-10 card-hover">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-950 text-white">
+                            <th class="p-6 font-bold uppercase text-sm tracking-wider flex items-center gap-2"><i class="fas fa-tag"></i> 類型</th>
+                            <th class="p-6 font-bold uppercase text-sm tracking-wider">核心寶可夢</th>
+                            <th class="p-6 font-bold uppercase text-sm tracking-wider flex items-center gap-2"><i class="fas fa-brain"></i> 難度</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="hover:bg-blue-50 transition">
+                            <td class="p-6 font-bold text-blue-600 flex items-center gap-2"><i class="fas fa-meteor"></i> 強攻型 (Aggro)</td>
+                            <td class="p-6">密勒頓 ex / 故勒頓 ex</td>
+                            <td class="p-6 text-sm flex gap-1"><i class="fas fa-star text-yellow-400"></i><i class="far fa-star text-slate-300"></i><i class="far fa-star text-slate-300"></i></td>
+                        </tr>
+                        <tr class="hover:bg-purple-50 transition">
+                            <td class="p-6 font-bold text-purple-600 flex items-center gap-2"><i class="fas fa-chess-knight"></i> 控制型 (Control)</td>
+                            <td class="p-6">沙奈朵 ex / 謎擬 Q</td>
+                            <td class="p-6 text-sm flex gap-1"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i></td>
+                        </tr>
+                        <tr class="hover:bg-red-50 transition">
+                            <td class="p-6 font-bold text-red-600 flex items-center gap-2"><i class="fas fa-fire"></i> 穩定型 (Midrange)</td>
+                            <td class="p-6 text-slate-900">噴火龍 ex (惡系)</td>
+                            <td class="p-6 text-sm flex gap-1"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="far fa-star text-slate-300"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="flex gap-4">
+                <button onclick="showPage(3)" class="w-1/3 border-2 border-slate-200 text-slate-500 font-bold py-4 rounded-xl hover:bg-slate-100 transition flex items-center justify-center gap-2"><i class="fas fa-arrow-left"></i> 返回</button>
+                <button onclick="location.reload()" class="w-2/3 bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl shadow-lg flex items-center justify-center gap-3"><i class="fas fa-sync-alt"></i> 重新學習一次</button>
             </div>
         </div>
 
     </div>
-<div id="page4" class="page">
-    <h1 class="text-4xl font-extrabold text-gray-900 mb-6">第四章：新手首選套牌建議</h1>
-    <p class="text-slate-600 mb-8 text-lg">不知道該從哪裡開始？以下是為不同風格玩家推薦的 2026 入門選擇：</p>
 
-    <div class="overflow-x-auto bg-white rounded-2xl shadow-xl border border-gray-100">
-        <table class="w-full text-left border-collapse">
-            <thead>
-                <tr class="bg-slate-900 text-white">
-                    <th class="p-5 font-bold uppercase text-sm">套牌類型</th>
-                    <th class="p-5 font-bold uppercase text-sm">核心寶可夢</th>
-                    <th class="p-5 font-bold uppercase text-sm">操作難度</th>
-                    <th class="p-5 font-bold uppercase text-sm">特色描述</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200">
-                <tr class="hover:bg-blue-50 transition">
-                    <td class="p-5 font-bold text-blue-600">強攻型 (Aggro)</td>
-                    <td class="p-5">密勒頓 ex / 故勒頓 ex</td>
-                    <td class="p-5"><span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">★☆☆☆☆</span></td>
-                    <td class="p-5 text-gray-600 text-sm">節奏極快，適合喜歡暴力輸出、直接擊潰對手的玩家。</td>
-                </tr>
-                <tr class="hover:bg-purple-50 transition">
-                    <td class="p-5 font-bold text-purple-600">控制型 (Control)</td>
-                    <td class="p-5">沙奈朵 ex / 謎擬 Q</td>
-                    <td class="p-5"><span class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs">★★★★☆</span></td>
-                    <td class="p-5 text-gray-600 text-sm">利用資源回收與干擾對手，適合享受佈局、運籌帷幄的玩家。</td>
-                </tr>
-                <tr class="hover:bg-yellow-50 transition">
-                    <td class="p-5 font-bold text-yellow-600">穩定型 (Midrange)</td>
-                    <td class="p-5">噴火龍 ex (惡系)</td>
-                    <td class="p-5"><span class="bg-orange-100 text-orange-700 px-2 py-1 rounded text-xs">★★☆☆☆</span></td>
-                    <td class="p-5 text-gray-600 text-sm">目前環境強者，血厚傷害高，是目前最穩定的冠軍熱門。</td>
-                </tr>
-                <tr class="hover:bg-cyan-50 transition">
-                    <td class="p-5 font-bold text-cyan-600">預組套牌 (Starter)</td>
-                    <td class="p-5">當季「初階牌組」</td>
-                    <td class="p-5"><span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">☆☆☆☆☆</span></td>
-                    <td class="p-5 text-gray-600 text-sm">價格最親民（約 NT$180），開盒即玩，是學習基礎的最佳起點。</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="mt-10 p-6 bg-blue-600 rounded-2xl text-white shadow-lg flex items-center justify-between">
-        <div>
-            <h4 class="text-xl font-bold">準備好加入戰鬥了嗎？</h4>
-            <p class="opacity-80">建議先從「預組牌組」開始練習，再逐步更換強力單卡！</p>
+    <footer class="bg-white py-12 text-center text-slate-500 border-t border-slate-100 mt-auto">
+        <p class="mb-4">© 2026 PTCG Trainer Lab. 僅供教學使用。</p>
+        <div class="flex justify-center gap-6 text-2xl text-slate-400">
+            <a href="https://www.pokemon-card.com/tw/" target="_blank" class="hover:text-red-500"><i class="fas fa-external-link-alt"></i></a>
+            <a href="https://github.com" target="_blank" class="hover:text-slate-900"><i class="fab fa-github"></i></a>
         </div>
-        <button onclick="location.href='https://www.pokemon-card.com/tw/'" class="bg-white text-blue-600 font-bold py-2 px-6 rounded-lg hover:bg-slate-100 transition">官方卡牌查詢</button>
-    </div>
+    </footer>
 
-    <button onclick="showPage(3)" class="mt-8 w-full border-2 border-gray-200 text-gray-500 font-bold py-4 rounded-xl hover:bg-gray-100 transition">返回對戰流程</button>
-</div>
     <script>
+        // 頁面切換核心邏輯
         function showPage(pageNum) {
-            // 隱藏所有頁面
+            // 隱藏所有頁面 (移除 active class)
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            // 顯示當前頁面
+            // 顯示當前點擊頁面 (加入 active class)
             document.getElementById('page' + pageNum).classList.add('active');
             
-            // 更新進度標籤
-            for(let i=1; i<=3; i++) {
+            // 更新進度導航欄樣式
+            for(let i=1; i<=4; i++) {
                 const label = document.getElementById('step' + i + '-label');
-                if(i <= pageNum) label.classList.add('step-active');
-                else label.classList.remove('step-active');
+                if(i == pageNum) {
+                    label.classList.add('step-active');
+                    label.classList.remove('text-slate-400');
+                } else if (i < pageNum) {
+                    label.classList.remove('step-active');
+                    label.classList.add('text-blue-600'); // 已完成的步驟顯示藍色
+                }
+                else {
+                    label.classList.remove('step-active', 'text-blue-600');
+                    label.classList.add('text-slate-400'); // 未完成的顯示灰色
+                }
             }
-            // 捲動回頂部
-            window.scrollTo(0,0);
+            // 頁面切換後自動捲動回頂部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
 </html>
-</body>
 </html>
