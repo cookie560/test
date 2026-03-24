@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTCG Master Guide | 寶可夢卡牌大師養成計畫</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .pokemon-gradient { background: linear-gradient(135deg, #ffcb05 0%, #3d7dca 100%); }
+        .card-hover:hover { transform: translateY(-10px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="font-bold text-2xl text-blue-700 tracking-tighter">PTCG <span class="text-yellow-500">LAB</span></div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#rules" class="hover:text-blue-600 transition">勝利條件</a>
+                <a href="#types" class="hover:text-blue-600 transition">卡牌架構</a>
+                <a href="#turn" class="hover:text-blue-600 transition">對戰流程</a>
+            </div>
+            <a href="https://github.com" class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm hover:bg-blue-700 transition">GitHub Repo</a>
+        </div>
+    </nav>
+
+    <header class="pokemon-gradient py-24 px-4 text-center text-white">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-lg">成為下一個冠軍</h1>
+        <p class="text-xl md:text-2xl max-w-2xl mx-auto opacity-90">從零開始的寶可夢集換式卡牌（PTCG）專業教學指南</p>
+        <div class="mt-10">
+            <a href="#rules" class="bg-white text-blue-700 font-bold py-3 px-8 rounded-lg shadow-xl hover:bg-slate-100 transition">立即開始學習</a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-16">
+        
+        <section id="rules" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-12 italic underline decoration-yellow-400 decoration-4">三大勝利路徑</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-8 bg-white rounded-2xl shadow-sm border border-slate-100 card-hover">
+                    <div class="text-4xl mb-4 text-yellow-500"><i class="fas fa-trophy"></i></div>
+                    <h3 class="text-xl font-bold mb-2">取走獎賞卡</h3>
+                    <p class="text-slate-600">擊敗對方寶可夢，拿完所有 6 張獎賞卡。</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl shadow-sm border border-slate-100 card-hover">
+                    <div class="text-4xl mb-4 text-red-500"><i class="fas fa-skull-crossbones"></i></div>
+                    <h3 class="text-xl font-bold mb-2">擊潰備戰區</h3>
+                    <p class="text-slate-600">當對手場上沒有任何可以戰鬥的寶可夢。</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl shadow-sm border border-slate-100 card-hover">
+                    <div class="text-4xl mb-4 text-blue-500"><i class="fas fa-book-dead"></i></div>
+                    <h3 class="text-xl font-bold mb-2">牌庫耗盡</h3>
+                    <p class="text-slate-600">對手回合開始無法從牌庫抽牌時直接獲勝。</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-16 border-slate-200">
+
+        <section id="turn">
+            <h2 class="text-3xl font-bold mb-8">標準對戰流程 <span class="text-sm font-normal text-slate-400 ml-2">Turn Phase</span></h2>
+            <div class="bg-slate-900 text-slate-300 p-8 rounded-3xl shadow-2xl overflow-hidden relative">
+                <div class="space-y-6 relative z-10">
+                    <div class="flex items-start">
+                        <span class="bg-yellow-500 text-black font-black px-3 py-1 rounded mr-4 mt-1">01</span>
+                        <div><strong class="text-white">抽牌階段：</strong> 每回合開始必經步驟，手牌上限無限制。</div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="bg-blue-500 text-white font-black px-3 py-1 rounded mr-4 mt-1">02</span>
+                        <div><strong class="text-white">行動階段：</strong> 放置基礎寶可夢、進化（需等待一回合）、附著能量（每回合一張）、使用訓練家卡。</div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="bg-red-500 text-white font-black px-3 py-1 rounded mr-4 mt-1">03</span>
+                        <div><strong class="text-white">攻擊階段：</strong> 宣佈招式並計算傷害，攻擊完後回合立即結束。</div>
+                    </div>
+                </div>
+                <i class="fas fa-bolt absolute -bottom-10 -right-10 text-9xl text-white/5"></i>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-100 py-10 text-center text-slate-500 border-t border-slate-200">
+        <p>© 2026 PTCG Trainer Lab. 僅供教學使用，圖案與商標屬任天堂所有。</p>
+    </footer>
+
+</body>
+</html>
